@@ -1,0 +1,25 @@
+
+      <span
+        class="gdb-switch"
+        :class="{
+          'gdb-switch--checked': checked,
+          'gdb-switch--disabled': disabled,
+          'gdb-switch--spacing': spacing,
+        }"
+        @click="toggle"
+      >
+        <div class="gdb-switch__inner">
+          <div class="gdb-switch__switch">
+            <span class="gdb-switch__icon material-icons-outlined"> {{ checked ? 'done' : 'close ' }} </span>
+          </div>
+        </div>
+        <div v-if="label || description" class="gdb-switch__right">
+          <span v-if="label" class="gdb-switch__label" v-text="label" />
+          <div v-if="description" class="gdb-switch__description">
+            <GDBDescription :text-color="descriptionColor" :icon-color="iconDescriptionColor">
+              {{ description }}
+            </GDBDescription>
+          </div>
+        </div>
+      </span>
+    
